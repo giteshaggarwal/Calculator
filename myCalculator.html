@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body{
+        background-color: black;
+      }
+      .js-but1{
+        height: 60px;
+        width: 60px;
+        border-radius: 60px;
+        border: none;
+        font-size: 26px;
+        cursor: pointer;
+        margin-right: 5px;
+        background-color: rgb(51, 51, 51);
+        color: white;
+        cursor: pointer;
+      }
+
+      .js-but2{
+        height: 60px;
+        width: 60px;
+        border-radius: 60px;
+        border: none;
+        font-size: 26px;
+        cursor: pointer;
+        margin-right: 5px;
+        background-color: rgb(254, 160, 10);
+        color: white;
+        cursor: pointer;
+      }
+
+      .js-clear-but{
+        height: 60px;
+        width: 60px;
+        border-radius: 60px;
+        border: none;
+        font-size: 17px;
+        cursor: pointer;
+        margin-right: 5px;
+        background-color: rgb(51, 51, 51);
+        color: white;
+        cursor: pointer;
+      }
+      .js-display-calc{
+        color: white;
+        font-size: 45px;
+        margin-top: 15px;
+        margin-bottom: 5px;
+      }
+      
+
+    </style>
+
+  </head>
+  <title> My Calculator</title>
+  <body>
+    <p class="js-display-calc"></p>
+    <p>
+    <button class="js-but1" onclick="
+      updateCalculation(1);
+      ">1</button>
+    <button  class="js-but1" onclick="
+    updateCalculation(2);
+    ">2</button>
+    <button class="js-but1" onclick="
+    updateCalculation(3);
+    ">3</button>
+    <button  class="js-but2" onclick="
+    updateCalculation('+');
+    ">+</button>
+   
+    </p>
+    <p>
+      <button class="js-but1" onclick="
+        updateCalculation(4);
+        ">4</button>
+      <button class="js-but1" onclick="
+       updateCalculation(5);
+      ">5</button>
+      <button class="js-but1" onclick="
+      updateCalculation(6);
+      ">6</button>
+      <button class="js-but2" onclick="
+      updateCalculation('-');
+      ">-</button>
+
+    </p>
+    <p>
+      <button class="js-but1" onclick="
+        updateCalculation(7);
+        ">7</button>
+      <button class="js-but1" onclick="
+       updateCalculation(8);
+      ">8</button>
+      <button class="js-but1" onclick="
+      updateCalculation(9);
+      ">9</button>
+      <button class="js-but2" onclick="
+      updateCalculation('*');
+      ">*</button>
+
+    </p>
+    <p>
+      <button class="js-but1" onclick="
+        updateCalculation(0);
+        ">0</button>
+      <button class="js-but1" onclick="
+       updateCalculation('.');
+      ">.</button>
+       <button  class="js-but1 " onclick="
+       eval(calculation);
+       calculation = eval(calculation);
+       console.log(calculation);
+        displayCalculation();
+       ">=</button>
+       <button class="js-but2" onclick="
+       updateCalculation('/');
+       ">/</button> 
+           
+    </p>
+    <p>
+      <button class="js-clear-but" onclick="
+        calculation = '';
+        displayCalculation();
+        ">Clear</button>
+    </p>
+  </body>
+  <script>
+   let calculation = '';
+   function updateCalculation(number1){
+    calculation = calculation + number1;
+      console.log(calculation);
+      displayCalculation();
+   }
+   localStorage.setItem('calculation',JSON.stringify(calculation));
+
+
+
+   function displayCalculation(){
+    document.querySelector('.js-display-calc').innerHTML= calculation;
+   }
+    
+  </script>
+</html>
